@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="poll-question">
+      {{currentPoll.question}}
+    </h1>
+    <form id="poll-form" class="poll-form" (submit)="onSubmit($event)">
+      <label *ngFor="let option of currentPoll.options">
+        <input type="radio" name="vote" [value]="option" (change)="selectOption(option)">{{option}}
+      </label>
+      <button type="submit" class="vote-button">
+        Vote
+      </button>
+    </form>
+
+    <div id="results" class="results">
+      <h2 class="results-title">
+        Poll Results
+      </h2>
+      <div class="results-count">
+        <p>Yes:
+          <span id="yes-count" class="count">{{yescount}}</span>
+        </p>
+        <p>No:
+          <span id="no-count" class="count">{{nocount}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  

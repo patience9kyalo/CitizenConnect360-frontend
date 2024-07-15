@@ -1,0 +1,51 @@
+<div class="admin-panel">
+    <h1>Admin Dashboard</h1>
+  
+    <h2>Citizens and Admin</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" [ngClass]="{ hidden: user.Role === 'gvn' }">
+          <td>{{ user.Name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>{{ user.Role }}</td>
+          <td>
+            <button (click)="verifyUser(user)">Verify</button>
+            <button (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Government Officials</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" [ngClass]="{ hidden: user.Role !== 'gvn' }">
+          <td>{{ user.Name }}</td>
+          <td>{{ user.Email }}</td>
+          <td>{{ user.Role }}</td>
+          <td>
+            <button (click)="approveUser(user)">Approve</button>
+            <button (click)="rejectUser(user)">Reject</button>
+            <button (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

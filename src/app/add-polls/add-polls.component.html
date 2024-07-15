@@ -1,0 +1,23 @@
+<div class="pollcontainer">
+  <div class="pollpage">
+    <h2>WELCOME TO CITIZENCONNECT 360</h2>
+
+    <form [formGroup]="pollForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <input id="question" formControlName="question" placeholder="Enter the Question">
+      </div>
+
+      <div class="form-group">
+        <label for="options">Options (comma-separated):</label>
+        <textarea id="options" formControlName="options" placeholder="Enter the Options"></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <div *ngIf="errorMessage" class="message">{{ errorMessage }}</div>
+    </form>
+
+  </div>
+</div>
